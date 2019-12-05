@@ -1,24 +1,26 @@
 {
-  "name": "a11y-fixer",
-  "version": "0.0.1",
-  "description": "Applause A11Y Validator / Fixer",
-  "main": "a11y-fixer.js",
-  "repository": "https://github.com/ApplauseAQI/applause-accessibility-tools",
-  "scripts": {
-    "lint": "npx eslint *.js",
-    "setup": "npm install",
-    "start": "node a11y-fixer.js",
-    "test": "echo \"Error: no test(s) specified\" && exit 1"
-  },
-  "author": "Applause Labs",
-  "license": "MIT",
-  "dependencies": {
-    "axe-core": "^3.3.2",
-    "got": "^9.6.0",
-    "jsdom": "^15.2.1"
-  },
-  "devDependencies": {
-    "eslint": "^6.6.0",
-    "eslint-config-google": "^0.14.0"
-  }
+    "name": "a11y-fixer",
+    "version": "0.0.1",
+    "bin": "./src/cli.js",
+    "description": "Applause A11Y (Accessibility) Issue Reporter / Fixer",
+    "main": "./src/cli.js",
+    "repository": "https://github.com/ApplauseAQI/applause-a11y-fixer",
+    "scripts": {
+        "lint": "npx eslint ./src",
+        "setup": "npm install",
+        "start": "node ./src/cli.js",
+        "test": "echo \"Error: no test(s) specified\" && exit 1"
+    },
+    "author": "Applause Labs",
+    "license": "MIT",
+    "dependencies": {
+        "axe-core": "^3.3.2",
+        "commander": "^4.0.1",
+        "got": "^9.6.0",
+        "jsdom": "^15.2.1"
+    },
+    "devDependencies": {
+        "eslint": "^6.6.0",
+        "eslint-config-google": "^0.14.0"
+    }
 }
