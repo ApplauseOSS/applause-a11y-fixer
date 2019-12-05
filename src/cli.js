@@ -32,9 +32,9 @@ program
 
 // Handler for unknown commands
 program.on('command:*', function() {
-  console.error(
-      'Invalid command: %s\nSee --help for a list of available commands.',
-      program.args.join(' '),
+  process.stderr.write(
+      `Invalid command: ${program.args.join(' ')}\nSee --help for a list of available commands.\n`,
+      'utf-8',
   );
   process.exit(1);
 });
