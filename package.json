@@ -18,7 +18,6 @@
     "author": "Applause Labs",
     "license": "MIT",
     "dependencies": {
-        "arg": "^4.1.2",
         "axe-core": "^3.3.2",
         "commander": "^4.0.1",
         "got": "^9.6.0",
