@@ -9,11 +9,7 @@
         "lint": "npx eslint ./src",
         "setup": "npm install",
         "start": "node ./src/cli.js",
-        "test": "echo \"Error: no test(s) specified\" && exit 1",
-        "pkg": "npm run pkg-macos && npm run pkg-linux && npm run pkg-win",
-        "pkg-macos": "npx pkg -t node12-macos --out-path ./pkg/macos .",
-        "pkg-win": "npx pkg -t node12-win --out-path ./pkg/win .",
-        "pkg-linux": "npx pkg -t node12-linux --out-path ./pkg/linux ."
+        "test": "echo \"Error: no test(s) specified\" && exit 1"
     },
     "author": "Applause Labs",
     "license": "MIT",
@@ -21,8 +17,7 @@
         "axe-core": "^3.3.2",
         "commander": "^4.0.1",
         "got": "^9.6.0",
-        "jsdom": "^15.2.1",
-        "pkg": "^4.4.0"
+        "jsdom": "^15.2.1"
     },
     "devDependencies": {
         "eslint": "^6.6.0",
