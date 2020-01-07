@@ -1,15 +1,4 @@
 /**
- * Apply the specified  [_axe_] `rule` against the specified `dom`
- * @param {object} dom the dom
- * @param {object} rule the rule
- * @return {object} the result
- */
-async function applyRule(dom, rule) {
-  return await applyRules(dom, [rule]);
-}
-
-
-/**
  * Apply the specified  [_axe_] `rules` against the specified `dom`
  * @param {object} dom the dom
  * @param {array} rules the rules
@@ -38,5 +27,4 @@ async function applyRules(dom, rules) {
   return await axe.run(global.document, {elementRef: true});
 }
 
-exports.applyRule = applyRule;
 exports.applyRules = applyRules;
