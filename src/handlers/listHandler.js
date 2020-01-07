@@ -1,20 +1,25 @@
 /**
  * Wraps the specified violation node value with a `li`
- * @param {object} violationNode the violation node
+ * @param {array} violationNodes the violation node list
  * @param {object} dom the dom
- * @param {string} document the document
- * @return {string} the result
  */
 function listHandler(
-    violationNode,
-    dom,
-    document,
+  violationNodes,
+  dom,
 ) {
-  const element = violationNode['none'][0]['relatedNodes'][0].element;
-  const location = dom.nodeLocation(element);
-  return document.substring(0, location.startOffset) + '<li>' +
-      document.substring(location.startOffset, location.endOffset) + '</li>' +
-      document.substring(location.endOffset, document.length);
+  violationNodes.forEach((node) => {
+    const relatedNodes = node['none'][0]['relatedNodes'];
+    relatedNodes.forEach((related) => {
+      const element = related.element;
+      const li = dom.window.document.createElement('li');
+      element.parentNode.insertBefore(li, element);
+
+      li.innerHTML = element.innerHTML;
+      Array.from(element.attributes).forEach((attr) => li.setAttribute(attr.name, attr.value));
+
+      element.remove();
+    });
+  });
 }
 
 module.exports = listHandler;

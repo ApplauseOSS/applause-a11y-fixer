@@ -1,39 +1,32 @@
-const {HANDLER_MAP, AXE_RULES} = require('./../handlers/handlerMap');
+const {HANDLER_MAP, AXE_RULES} = require('../config/handlerMap');
 const {createDOM, getFromPathOrUrl} = require('./../utils/domUtils');
-const {applyRule} = require('./../utils/axeUtils');
+const {applyRules} = require('./../utils/axeUtils');
 const fsp = require('fs').promises;
+const pretty = require('pretty');
 
 /**
  * Attempts to fix a violation
  * @param {object} dom the dom
- * @param {string} document the document
- * @param {array} violation the violation
- * @return {string} the result
+ * @param {object} violation the violation
  */
 async function fixViolation(
-    dom,
-    document,
-    violation,
+  dom,
+  violation,
 ) {
+  process.stdout.write(`Fixing violation: ${violation.id}\n`);
   const handler = HANDLER_MAP[violation['id']];
   if (!handler) {
-    return document;
+    return;
   }
 
   const violationNodes = violation['nodes'];
   if (!violationNodes.length) {
-    return document;
+    return;
   }
 
-  return violationNodes.reduce(
-      (memo, violationNode) => (
-        handler(
-            violationNode,
-            dom,
-            memo,
-        )
-      ),
-      document,
+  handler(
+    violationNodes,
+    dom,
   );
 }
 
@@ -45,25 +38,26 @@ async function fixViolation(
  * @return {string} the result
  */
 async function fixViolations(pathOrUrl, targetPath, previewOnly = false) {
+  if (targetPath === undefined) {
+    throw Error('[target-file] is not set.');
+  }
+
   let document = await getFromPathOrUrl(pathOrUrl);
+  const dom = createDOM(document);
 
-  for (const rule of Object.values(AXE_RULES)) {
-    const dom = createDOM(document);
+  const violations = (await applyRules(dom, Object.values(AXE_RULES)))['violations'];
 
-    const violations = (await applyRule(dom, rule))['violations'];
-    if (!violations.length) {
-      continue;
-    }
-
-    document = await fixViolation(
-        dom,
-        document,
-        violations[0],
+  for (const violation of violations) {
+    await fixViolation(
+      dom,
+      violation,
     );
   }
 
+  document = pretty(dom.serialize(), {ocd: true});
+
   if (previewOnly === true) {
-    process.stdout.write(document + '\n');
+    process.stdout.write(document);
   } else {
     await fsp.writeFile(targetPath, document, {encoding: 'utf-8'});
   }

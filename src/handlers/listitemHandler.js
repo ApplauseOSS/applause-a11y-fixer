@@ -1,20 +1,19 @@
 /**
  * Wraps the specified violation node value with a `ul`
- * @param {object} violationNode the violation node
+ * @param {array} violationNodes the violation node list
  * @param {object} dom the dom
- * @param {string} document the document
- * @return {string} the result
  */
 function listItemHandler(
-    violationNode,
-    dom,
-    document,
+  violationNodes,
+  dom,
 ) {
-  const element = violationNode['element'];
-  const location = dom.nodeLocation(element);
-  return document.substring(0, location.startOffset) + '<ul>' +
-      document.substring(location.startOffset, location.endOffset) + '</ul>' +
-      document.substring(location.endOffset, document.length);
+  const elements = violationNodes.map((node) => node.element);
+  const first = elements[0];
+
+  const ul = dom.window.document.createElement('ul');
+  first.parentNode.insertBefore(ul, first);
+
+  elements.forEach((element) => ul.appendChild(element));
 }
 
 module.exports = listItemHandler;

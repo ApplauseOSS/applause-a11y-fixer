@@ -16,7 +16,12 @@ program
     .command('report <path-or-url>')
     .option('-j, --json', 'Print output as json.')
     .action(async function(path, command) {
-      await report(path, command.json);
+      try {
+        await report(path, command.json);
+      } catch (err) {
+        process.stderr.write(`Error: ${err.message}\n\n`);
+        program.outputHelp();
+      }
     });
 
 /**
@@ -27,7 +32,12 @@ program
     .command('fix <path-or-url> [target-file]')
     .option('-p, --preview', 'Print a preview of the output only.')
     .action(async function(path, target, command) {
-      await fix(path, target, command.preview);
+      try {
+        await fix(path, target, command.preview);
+      } catch (err) {
+        process.stderr.write(`Error: ${err.message}\n\n`);
+        program.outputHelp();
+      }
     });
 
 // Handler for unknown commands

@@ -1,4 +1,4 @@
-const {AXE_RULES} = require('./../handlers/handlerMap');
+const {AXE_RULES} = require('../config/handlerMap');
 const {createDOM, getFromPathOrUrl} = require('./../utils/domUtils');
 const {applyRules} = require('./../utils/axeUtils');
 const {formatViolation} = require('./../utils/formatUtils');

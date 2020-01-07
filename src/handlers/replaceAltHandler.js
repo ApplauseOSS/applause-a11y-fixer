@@ -1,26 +1,16 @@
-const {replaceAt, openingTag} = require('./../utils/handlerUtils');
-
 /**
  * Replaces the "alt" attribute of the specified violation node
- * @param {object} violationNode the violation node
+ * @param {array} violationNodes the violation node list
  * @param {object} dom the dom
- * @param {string} document the document
- * @return {string} the result
  */
 function replaceAltHandler(
-    violationNode,
-    dom,
-    document,
+  violationNodes,
+  dom,
 ) {
-  const element = violationNode['element'];
-  const location = dom.nodeLocation(element);
-  element.setAttribute('alt', 'CHANGE_ME');
-  return replaceAt(
-      document,
-      location.startTag.startOffset,
-      location.startTag.endOffset,
-      openingTag(element),
-  );
+  violationNodes.map((node) => {
+    const element = node['element'];
+    element.setAttribute('alt', 'CHANGE_ME');
+  });
 }
 
 module.exports = replaceAltHandler;

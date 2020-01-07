@@ -1,26 +1,16 @@
-const {replaceAt, openingTag} = require('./../utils/handlerUtils');
-
 /**
  * Set the "tabindex" attribute for the specified violation node
- * @param {object} violationNode the violation node
+ * @param {array} violationNodes the violation node list
  * @param {object} dom the dom
- * @param {string} document the document
- * @return {string} the result
  */
 function tabIndexHandler(
-    violationNode,
-    dom,
-    document,
+  violationNodes,
+  dom,
 ) {
-  const element = violationNode['element'];
-  const location = dom.nodeLocation(element);
-  element.setAttribute('tabindex', '0');
-  return replaceAt(
-      document,
-      location.startTag.startOffset,
-      location.startTag.endOffset,
-      openingTag(element),
-  );
+  violationNodes.map((node) => {
+    const element = node['element'];
+    element.setAttribute('tabindex', '0');
+  });
 }
 
 module.exports = tabIndexHandler;
