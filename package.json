@@ -18,7 +18,8 @@
         "commander": "^4.0.1",
         "got": "^9.6.0",
         "jsdom": "^15.2.1",
-        "pretty": "^2.0.0"
+        "pretty": "^2.0.0",
+        "uuid": "^3.3.3"
     },
     "devDependencies": {
         "eslint": "^6.6.0",

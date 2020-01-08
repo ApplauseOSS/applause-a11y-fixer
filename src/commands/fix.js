@@ -1,8 +1,9 @@
-const {HANDLER_MAP, AXE_RULES} = require('../config/handlerMap');
-const {createDOM, getFromPathOrUrl} = require('./../utils/domUtils');
-const {applyRules} = require('./../utils/axeUtils');
 const fsp = require('fs').promises;
 const pretty = require('pretty');
+const {applyRules} = require('../utils/axeUtils');
+const {createDOM, getFromPathOrUrl} = require('../utils/domUtils');
+const {FixError} = require('../errors/errors');
+const {HANDLER_MAP, AXE_RULES} = require('../config/handlerMap');
 
 /**
  * Attempts to fix a violation
@@ -35,15 +36,24 @@ async function fixViolation(
  * @param {string} pathOrUrl the input
  * @param {string} targetPath the output file
  * @param {boolean} previewOnly only preview the operation, dont write the file
+ * @param {array} rules is a list of strings of rule names to check
  * @return {string} the result
  */
-async function fixViolations(pathOrUrl, targetPath, previewOnly = false) {
-  if (targetPath === undefined) {
-    throw Error('[target-file] is not set.');
+async function fixViolations(pathOrUrl, targetPath, previewOnly = false, rules) {
+  if (previewOnly === false && targetPath === undefined) {
+    throw new FixError('[target-file] is not set.');
   }
 
   let document = await getFromPathOrUrl(pathOrUrl);
   const dom = createDOM(document);
+
+  if (rules !== undefined) {
+    AXE_RULES.forEach((rule) => {
+      if (!rules.includes(rule.id)) {
+        rule.enabled = false;
+      }
+    });
+  }
 
   const violations = (await applyRules(dom, Object.values(AXE_RULES)))['violations'];
 

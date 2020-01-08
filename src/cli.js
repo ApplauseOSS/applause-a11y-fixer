@@ -2,6 +2,9 @@ const program = require('commander');
 const report = require('./commands/report');
 const fix = require('./commands/fix');
 const pjson = require('./../package.json');
+const errors = require('./errors/errors');
+const {rulesProcessor} = require('./processors/argumentProcessors');
+
 
 program
   .name(pjson.name)
@@ -15,9 +18,10 @@ program
 program
   .command('report <path-or-url>')
   .option('-j, --json', 'Print output as json.')
+  .option('-r, --rules <rules>', 'Only check these rules (comma-separated)', rulesProcessor)
   .action(async function(path, command) {
     try {
-      await report(path, command.json);
+      await report(path, command.json, command.rules);
     } catch (err) {
       process.stderr.write(`Error: ${err.message}\n\n`);
       program.outputHelp();
@@ -31,11 +35,12 @@ program
 program
   .command('fix <path-or-url> [target-file]')
   .option('-p, --preview', 'Print a preview of the output only.')
+  .option('-r, --rules <rules>', 'Only fix these rules (comma-separated)', rulesProcessor)
   .action(async function(path, target, command) {
     try {
-      await fix(path, target, command.preview);
+      await fix(path, target, command.preview, command.rules);
     } catch (err) {
-      process.stderr.write(`Error: ${err.message}\n\n`);
+      process.stderr.write(`${err.name}: ${err.message}\n`);
       program.outputHelp();
     }
   });
@@ -50,7 +55,13 @@ program.on('command:*', function() {
 });
 
 // Execute
-program.parse(process.argv);
+try {
+  program.parse(process.argv);
+} catch (err) {
+  if ([errors.ProcessorError].some((item) => err instanceof item)) {
+    process.stderr.write(`${err.name}: ${err.message}\n`);
+  }
+}
 
 // Errors
 if (!process.argv.slice(2).length) {

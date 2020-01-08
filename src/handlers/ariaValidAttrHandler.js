@@ -9,9 +9,12 @@ function ariaValidAttrHandler(
 ) {
   violationNodes.forEach((node) => {
     const element = node['element'];
-    for (const invalidAttribute of node['any'][0]['data']) {
-      element.removeAttribute(invalidAttribute);
-    }
+
+    const invalidAttrs = node['any'].reduce((invalidAttrs, related) => {
+      return invalidAttrs.concat(related['data']);
+    }, []);
+
+    invalidAttrs.forEach((attr) => element.removeAttribute(attr));
   });
 }
 

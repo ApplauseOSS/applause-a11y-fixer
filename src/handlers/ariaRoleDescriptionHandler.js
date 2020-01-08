@@ -7,8 +7,9 @@ function ariaRoleDescriptionHandler(
   violationNodes,
   dom,
 ) {
-  const elements = violationNodes.map((node) => node.element);
-  elements.forEach((element) => element.removeAttribute('aria-roledescription'));
+  violationNodes.map((node) => {
+    node.element.removeAttribute('aria-roledescription');
+  });
 }
 
 module.exports = ariaRoleDescriptionHandler;

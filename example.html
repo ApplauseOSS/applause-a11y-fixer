@@ -18,6 +18,24 @@
     <!-- aria-hidden-focus -->
     <button aria-hidden="true">Test</button>
 
+    <!-- aria-label with empty text string -->
+    <div id="fail1" aria-label=" " role="combobox">England</div>
+
+    <!-- The label does not exist. -->
+    <div id="fail2" aria-labelledby="non-existing-label" role="combobox">England</div>
+
+    <!-- items nested in label should have aria-labelledby -->
+    <label>
+      A Label
+      <div id="fail10" role="textbox"></div>
+    </label>
+
+    <!-- aria-toggle-field-label checkbox -->
+    <div id="fail1" role="checkbox"></div>
+
+    <!-- aria-role with invalid role='' -->
+    <div id="fail1" role="invalid-role">Massachusetts</div>
+
     <!-- aria-roledescription -->
     <span aria-roledescription="invalid roledescription">Test</span>
 
