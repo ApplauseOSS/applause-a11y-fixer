@@ -2,9 +2,10 @@
  * Apply the specified  [_axe_] `rules` against the specified `dom`
  * @param {object} dom the dom
  * @param {array} rules the rules
+ * @param {boolean} disableOtherRules
  * @return {object} the result
  */
-async function applyRules(dom, rules) {
+async function applyRules(dom, rules, disableOtherRules=true) {
   // See: https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#required-globals
   global.document = dom.window.document;
   global.window = dom.window;
@@ -22,7 +23,7 @@ async function applyRules(dom, rules) {
 
   // _This_ needs to be loaded lazily and re-configured w/ each iteration
   const axe = require('axe-core');
-  axe.configure({rules: rules, disableOtherRules: true});
+  axe.configure({rules: rules, disableOtherRules: disableOtherRules});
 
   return await axe.run(global.document, {elementRef: true});
 }

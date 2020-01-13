@@ -11,7 +11,6 @@ function ariaInputFieldLabelHandler(
   dom,
 ) {
   violationNodes.map((node) => {
-    // node.element.removeAttribute('aria-roledescription');
     const element = node.element;
     if (element.hasAttribute('aria-label')) {
       element.setAttribute('aria-label', 'CHANGE_ME');

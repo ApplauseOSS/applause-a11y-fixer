@@ -1,84 +1,97 @@
 <!DOCTYPE html>
 <!-- html-has-lang -->
 <html>
-  <head>
-    <!-- meta-refresh -->
-    <meta http-equiv="refresh" content="3; URL=http://www.example.com/">
+    <head>
+        <!-- meta-refresh -->
+        <meta http-equiv="refresh" content="3; URL=http://www.example.com/">
 
-    <title>Test</title>
-  </head>
-  <body>
-    <!-- accesskey -->
-    <a href="google.com" accesskey="g">Link to Google</a>
-    <a href="github.com" accesskey="g">Link to GitHub</a>
+        <!-- document-title -->
+        <title></title>
+    </head>
+    <body>
+        <!-- accesskey -->
+        <a href="google.com" accesskey="g">Link to Google</a>
+        <a href="github.com" accesskey="g">Link to GitHub</a>
 
-    <!-- area-alt -->
-    <map name="imagemap"><area shape="rect" coords="0,0,10,10" href="#"></map>
+        <!-- area-alt -->
+        <map name="imagemap">
+            <area shape="rect" coords="0,0,10,10" href="#">
+        </map>
 
-    <!-- aria-hidden-focus -->
-    <button aria-hidden="true">Test</button>
+        <!-- aria-hidden-focus -->
+        <button aria-hidden="true">Test</button>
 
-    <!-- aria-label with empty text string -->
-    <div id="fail1" aria-label=" " role="combobox">England</div>
+        <!-- aria-label with empty text string -->
+        <div id="fail1" aria-label=" " role="combobox">England</div>
 
-    <!-- The label does not exist. -->
-    <div id="fail2" aria-labelledby="non-existing-label" role="combobox">England</div>
+        <!-- The label does not exist. -->
+        <div id="fail2" aria-labelledby="non-existing-label" role="combobox">England</div>
 
-    <!-- items nested in label should have aria-labelledby -->
-    <label>
-      A Label
-      <div id="fail10" role="textbox"></div>
-    </label>
+        <!-- items nested in label should have aria-labelledby -->
+        <label>
+            A Label
+            <textarea id="fail10" role="textbox"></textarea>
+        </label>
 
-    <!-- aria-toggle-field-label checkbox -->
-    <div id="fail1" role="checkbox"></div>
+        <!-- aria-toggle-field-label checkbox -->
+        <div id="fail1" role="checkbox"></div>
 
-    <!-- aria-role with invalid role='' -->
-    <div id="fail1" role="invalid-role">Massachusetts</div>
+        <!-- aria-role with invalid role='' -->
+        <div id="fail1" role="invalid-role">Massachusetts</div>
 
-    <!-- aria-roledescription -->
-    <span aria-roledescription="invalid roledescription">Test</span>
+        <!-- aria-roledescription -->
+        <span aria-roledescription="invalid roledescription">Test</span>
 
-    <!-- aria-valid-attr -->
-    <div aria-foo="bar" aria-x="y">Test</div>
+        <!-- aria-valid-attr -->
+        <div aria-foo="bar" aria-x="y">Test</div>
 
-    <!-- blink -->
-    <blink>blinking</blink>
+        <!-- audio-caption -->
+        <audio>
+            <source src="example.mp3" type="audio/mp3">
+        </audio>
 
-    <!-- frame-title -->
-    <iframe></iframe>
+        <!-- video-caption -->
+        <video width="300" height="200">
+            <source src="example.mp4" type="video/mp4">
+        </video>
 
-    <ul>
-      <li>first</li>
-      <li>second</li>
+        <!-- blink -->
+        <blink>blinking</blink>
 
-      <!-- list -->
-      <div class="foo">third</div>
-    </ul>
+        <!-- frame-title -->
+        <iframe></iframe>
 
-    <!-- image-alt -->
-    <img src="asdasd">
+        <ul>
+            <li>first</li>
+            <li>second</li>
 
-    <!-- input-image-alt -->
-    <input type="image">
+            <!-- list -->
+            <div class="foo">third</div>
+        </ul>
 
-    <p lang="NotALang">Some text here</p>
+        <!-- image-alt -->
+        <img src="asdasd">
 
-    <!-- listitem -->
-    <li>list item 1</li>
-    <li>list item 2</li>
+        <!-- input-image-alt -->
+        <input type="image">
 
-    <!-- marquee -->
-    <marquee>some text</marquee>
+        <p lang="NotALang">Some text here</p>
 
-    <!-- object-alt -->
-    <object></object>
+        <!-- listitem -->
+        <li>list item 1</li>
+        <li>list item 2</li>
 
-    <!-- role-img-alt -->
-    <div role="img"></div>
+        <!-- marquee -->
+        <marquee>some text</marquee>
 
-    <!-- tabindex -->
-    <div tabindex="2"></div>
-    <div tabindex="1"></div>
-  </body>
+        <!-- object-alt -->
+        <object></object>
+
+        <!-- role-img-alt -->
+        <div role="img"></div>
+
+        <!-- tabindex -->
+        <div tabindex="2"></div>
+        <div tabindex="1"></div>
+    </body>
 </html>

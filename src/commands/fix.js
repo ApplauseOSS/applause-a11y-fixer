@@ -48,6 +48,14 @@ async function fixViolations(pathOrUrl, targetPath, previewOnly = false, rules) 
   const dom = createDOM(document);
 
   if (rules !== undefined) {
+    const validRules = Object.keys(HANDLER_MAP);
+
+    rules.forEach((rule) => {
+      if (!validRules.includes(rule)) {
+        throw new FixError(`Rule '${rule}' is not implemented.`);
+      }
+    });
+
     AXE_RULES.forEach((rule) => {
       if (!rules.includes(rule.id)) {
         rule.enabled = false;

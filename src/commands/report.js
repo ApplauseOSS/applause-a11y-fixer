@@ -1,4 +1,3 @@
-const {AXE_RULES} = require('../config/handlerMap');
 const {createDOM, getFromPathOrUrl} = require('./../utils/domUtils');
 const {applyRules} = require('./../utils/axeUtils');
 const {formatViolation} = require('./../utils/formatUtils');
@@ -15,14 +14,12 @@ async function reportViolations(pathOrUrl, jsonOutput = false, rules) {
   const dom = createDOM(html);
 
   if (rules !== undefined) {
-    AXE_RULES.forEach((rule) => {
-      if (!rules.includes(rule.id)) {
-        rule.enabled = false;
-      }
+    rules = rules.map((rule) => {
+      return {id: rule, enabled: true};
     });
   }
 
-  const violations = (await applyRules(dom, AXE_RULES))['violations'];
+  const violations = (await applyRules(dom, rules, rules !== undefined))['violations'];
 
   let output;
   if (jsonOutput) {

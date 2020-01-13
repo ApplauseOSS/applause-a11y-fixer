@@ -3,7 +3,7 @@ const report = require('./commands/report');
 const fix = require('./commands/fix');
 const pjson = require('./../package.json');
 const errors = require('./errors/errors');
-const {rulesProcessor} = require('./processors/argumentProcessors');
+const {commaSeparatedListProcessor} = require('./processors/argumentProcessors');
 
 
 program
@@ -18,7 +18,7 @@ program
 program
   .command('report <path-or-url>')
   .option('-j, --json', 'Print output as json.')
-  .option('-r, --rules <rules>', 'Only check these rules (comma-separated)', rulesProcessor)
+  .option('-r, --rules <rules>', 'Only check these rules (comma-separated)', commaSeparatedListProcessor)
   .action(async function(path, command) {
     try {
       await report(path, command.json, command.rules);
@@ -35,7 +35,7 @@ program
 program
   .command('fix <path-or-url> [target-file]')
   .option('-p, --preview', 'Print a preview of the output only.')
-  .option('-r, --rules <rules>', 'Only fix these rules (comma-separated)', rulesProcessor)
+  .option('-r, --rules <rules>', 'Only fix these rules (comma-separated)', commaSeparatedListProcessor)
   .action(async function(path, target, command) {
     try {
       await fix(path, target, command.preview, command.rules);
