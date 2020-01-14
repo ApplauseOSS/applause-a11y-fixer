@@ -7,7 +7,7 @@ function ariaRolesHandler(
   violationNodes,
   dom,
 ) {
-  violationNodes.map((node) => {
+  violationNodes.forEach((node) => {
     const element = node.element;
     element.setAttribute('role', 'CHANGE_OR_REMOVE');
   });

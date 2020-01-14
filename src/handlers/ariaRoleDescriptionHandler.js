@@ -7,7 +7,7 @@ function ariaRoleDescriptionHandler(
   violationNodes,
   dom,
 ) {
-  violationNodes.map((node) => {
+  violationNodes.forEach((node) => {
     node.element.removeAttribute('aria-roledescription');
   });
 }

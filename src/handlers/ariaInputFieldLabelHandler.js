@@ -10,7 +10,7 @@ function ariaInputFieldLabelHandler(
   violationNodes,
   dom,
 ) {
-  violationNodes.map((node) => {
+  violationNodes.forEach((node) => {
     const element = node.element;
     if (element.hasAttribute('aria-label')) {
       element.setAttribute('aria-label', 'CHANGE_ME');

@@ -2,15 +2,14 @@
  * @param {array} violationNodes the violation node list
  * @param {object} dom the dom
  */
-function ariaToggleFieldNameHandler(
+function imageRedundantAltHandler(
   violationNodes,
   dom,
 ) {
   violationNodes.forEach((node) => {
     const element = node.element;
-    element.removeAttribute('aria-labelledby');
-    element.setAttribute('aria-label', 'CHANGE_ME');
+    element.setAttribute('alt', '');
   });
 }
 
-module.exports = ariaToggleFieldNameHandler;
+module.exports = imageRedundantAltHandler;

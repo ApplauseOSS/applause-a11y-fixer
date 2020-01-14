@@ -6,7 +6,7 @@ function captionHandler(
   violationNodes,
   dom,
 ) {
-  violationNodes.map((node) => {
+  violationNodes.forEach((node) => {
     const element = node.element;
     const track = dom.window.document.createElement('track');
     track.setAttribute('src', 'CHANGE_ME');

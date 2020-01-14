@@ -6,7 +6,7 @@ function documentTitleHandler(
   violationNodes,
   dom,
 ) {
-  violationNodes.map((node) => {
+  violationNodes.forEach(() => {
     const head = dom.window.document.head;
     let title = head.getElementsByTagName('title')[0];
     if (title === undefined) {

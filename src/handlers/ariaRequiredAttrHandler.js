@@ -7,7 +7,7 @@ function ariaRequiredAttrHandler(
   violationNodes,
   dom,
 ) {
-  violationNodes.map((node) => {
+  violationNodes.forEach((node) => {
     const element = node.element;
 
     const missingAttrs = node['any'].reduce((missingAttrs, related) => {

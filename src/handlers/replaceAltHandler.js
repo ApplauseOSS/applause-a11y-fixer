@@ -7,7 +7,7 @@ function replaceAltHandler(
   violationNodes,
   dom,
 ) {
-  violationNodes.map((node) => {
+  violationNodes.forEach((node) => {
     const element = node['element'];
     element.setAttribute('alt', 'CHANGE_ME');
   });

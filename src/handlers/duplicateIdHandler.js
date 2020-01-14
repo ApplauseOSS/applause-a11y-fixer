@@ -6,7 +6,7 @@ function duplicateIdHandler(
   violationNodes,
   dom,
 ) {
-  violationNodes.map((node) => {
+  violationNodes.forEach((node) => {
     const duplicateIdElements = node['any'].reduce((duplicateIdElements, related) => {
       return duplicateIdElements.concat(related['relatedNodes'].map((relatedNode) => {
         return relatedNode.element;

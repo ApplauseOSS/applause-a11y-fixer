@@ -7,7 +7,7 @@ function replaceAccessKeyHandler(
   violationNodes,
   dom,
 ) {
-  violationNodes.map((node, nodeIndex) => {
+  violationNodes.forEach((node, nodeIndex) => {
     const element = node['element'];
     const result = node['none'][0];
 

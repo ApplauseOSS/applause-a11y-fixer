@@ -7,7 +7,7 @@ function tabIndexHandler(
   violationNodes,
   dom,
 ) {
-  violationNodes.map((node) => {
+  violationNodes.forEach((node) => {
     const element = node['element'];
     element.setAttribute('tabindex', '0');
   });

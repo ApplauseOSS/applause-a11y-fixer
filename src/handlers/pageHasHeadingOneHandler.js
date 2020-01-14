@@ -6,7 +6,7 @@ function pageHasHeadingOneHandler(
   violationNodes,
   dom,
 ) {
-  violationNodes.map((node) => {
+  violationNodes.forEach((node) => {
     const element = node.element;
     const body = element.getElementsByTagName('body')[0];
     const h1 = dom.window.document.createElement('h1');

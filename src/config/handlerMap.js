@@ -21,8 +21,16 @@ const replaceTitleHandler = require('../handlers/replaceTitleHandler');
 const stripAriaHiddenHandler = require('../handlers/stripAriaHiddenHandler');
 const stripElementHandler = require('../handlers/stripElementHandler');
 const tabIndexHandler = require('../handlers/tabindexHandler');
+const inputLabelHandler = require('../handlers/inputLabelHandler');
+const imageRedundantAltHandler = require('../handlers/imageRedundantAltHandler');
+const frameTitleUniqueHandler = require('../handlers/frameTitleUniqueHandler');
+const dlItemHandler = require('../handlers/dlItemHandler');
 
 exports.HANDLER_MAP = {
+  'dlitem': dlItemHandler,
+  'frame-title-unique': frameTitleUniqueHandler,
+  'image-redundant-alt': imageRedundantAltHandler,
+  'label': inputLabelHandler,
   'accesskeys': replaceAccessKeyHandler,
   'area-alt': replaceAltHandler,
   'aria-hidden-body': stripAriaHiddenHandler,

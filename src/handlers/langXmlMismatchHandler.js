@@ -7,7 +7,7 @@ function replaceLangHandler(
   violationNodes,
   dom,
 ) {
-  violationNodes.map((node) => {
+  violationNodes.forEach((node) => {
     const element = node['element'];
     element.setAttribute('xml:lang', element.lang);
   });

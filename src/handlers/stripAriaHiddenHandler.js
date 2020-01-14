@@ -7,7 +7,7 @@ function stripAriaHiddenHandler(
   violationNodes,
   dom,
 ) {
-  violationNodes.map((node) => {
+  violationNodes.forEach((node) => {
     const element = node['element'];
     element.removeAttribute('aria-hidden');
   });
