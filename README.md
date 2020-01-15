@@ -27,23 +27,23 @@ node src/cli.js report example.html
 
 **Fix violation(s) for the example-file:**
 ```bash
-node src/cli.js fix example.html
+node src/cli.js fix example.html example-fixed.html
 ```
 
-## Options
+### Options
+
+**Review the help to see various options**
 ```bash
 $ node src/cli.js -h
+$ node src/cli.js fix -h
+$ node src/cli.js report -h
 ```
-```bash
-Usage: a11y-fixer [options] [command]
+**Flags:**
 
-Applause A11Y (Accessibility) Issue Reporter / Fixer
-
-Options:
-  -V, --version                              output the version number
-  -h, --help                                 output usage information
-
-Commands:
-  report [options] <path-or-url>
-  fix [options] <path-or-url> [target-file]
-```
+* Global
+    * `-r, --rules <rules>`  Only run checks or fixes against this list of comma separated rule id's.
+    Example: `-r "button-name, valid-lang"`
+* `fix`
+    * `-p, --preview`  Print the fixed html to the console. When using this rule a target file does not need to be specified.
+* `report`
+    * `-j, --json` Print the raw Axe violation json data instead of the human readable version.

@@ -1,3 +1,6 @@
+const {SubNodeType, SelectorType} = require('../constants/constants');
+const {getRelated} = require('../utils/handlerUtils');
+
 /**
  * Wraps the specified violation node value with a `li`
  * @param {array} violationNodes the violation node list
@@ -8,16 +11,11 @@ function listHandler(
   dom,
 ) {
   violationNodes.forEach((node) => {
-    const relatedNodes = node['none'][0]['relatedNodes'];
-    relatedNodes.forEach((related) => {
-      const element = related.element;
+    const relatedElements = getRelated(node, SelectorType.NONE, SubNodeType.ELEMENTS);
+    relatedElements.forEach((element) => {
       const li = dom.window.document.createElement('li');
-      element.parentNode.insertBefore(li, element);
-
-      li.innerHTML = element.innerHTML;
-      Array.from(element.attributes).forEach((attr) => li.setAttribute(attr.name, attr.value));
-
-      element.remove();
+      element.before(li);
+      li.appendChild(element);
     });
   });
 }

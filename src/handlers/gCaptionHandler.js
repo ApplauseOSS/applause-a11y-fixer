@@ -1,20 +1,22 @@
+const {S} = require('../constants/constants');
+
 /**
  * @param {array} violationNodes the violation node list
  * @param {object} dom the dom
  */
-function captionHandler(
+function gCaptionHandler(
   violationNodes,
   dom,
 ) {
   violationNodes.forEach((node) => {
     const element = node.element;
     const track = dom.window.document.createElement('track');
-    track.setAttribute('src', 'CHANGE_ME');
+    track.setAttribute('src', S.CHANGE_ME);
     track.setAttribute('kind', 'captions');
-    track.setAttribute('srclang', 'CHANGE_ME');
-    track.setAttribute('label', 'CHANGE_ME');
+    track.setAttribute('srclang', S.CHANGE_ME);
+    track.setAttribute('label', S.CHANGE_ME);
     element.appendChild(track);
   });
 }
 
-module.exports = captionHandler;
+module.exports = gCaptionHandler;

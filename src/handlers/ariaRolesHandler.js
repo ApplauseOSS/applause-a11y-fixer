@@ -1,5 +1,10 @@
-/**
- * ARIA roles used must conform to valid values
+/** ARIA roles used must conform to valid values
+ * Axe ID:
+ *   aria-roles https://dequeuniversity.com/rules/axe/3.0/aria-roles
+ * WCAG:
+ *   4.1.2
+ *   4.1.1
+ *   1.3.1
  * @param {array} violationNodes the violation node list
  * @param {object} dom the dom
  */

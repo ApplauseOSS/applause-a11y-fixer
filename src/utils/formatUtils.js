@@ -8,11 +8,11 @@ const {capitalize} = require('./miscUtils');
 function formatViolation(violation, dom) {
   const violationNodes = violation['nodes'];
   return `>>> ${violation.id}
-    Description : ${capitalize(violation['help'])}
-    Impact      : ${capitalize(violation['impact'])}
-    Help Info   : ${violation.helpUrl.split('?')[0]}
-    Violations  : ${violationNodes.length}
-    Related HTML:
+    Description  : ${capitalize(violation['help'])}
+    Impact       : ${capitalize(violation['impact'])}
+    Help Info    : ${violation.helpUrl.split('?')[0]}
+    Violations   : ${violationNodes.length}
+    Related HTML :
 ${formatViolationNodes(violationNodes, dom)}`;
 }
 
@@ -25,7 +25,7 @@ ${formatViolationNodes(violationNodes, dom)}`;
  */
 function formatViolationNode(violationNode, violationNodeIndex, dom) {
   const location = dom.nodeLocation(violationNode.element);
-  const lineNum = location.startLine.toString().padStart(11, ' ');
+  const lineNum = location.startLine.toString().padStart(12, ' ');
   const colVal = location.startCol.toString().padEnd(3, ' ');
   return `${lineNum}:${colVal} : ${violationNode['html']}`;
 }

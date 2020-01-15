@@ -1,8 +1,12 @@
-/**
+/** Ensures <dt> and <dd> elements are contained by a <dl>
+ * Axe ID:
+ *   dlitem https://dequeuniversity.com/rules/axe/3.1/dlitem
+ * WCAG:
+ *   1.3.1
  * @param {array} violationNodes the violation node list
  * @param {object} dom the dom
  */
-function dlItemHandler(
+function dlitemHandler(
   violationNodes,
   dom,
 ) {
@@ -15,4 +19,4 @@ function dlItemHandler(
   });
 }
 
-module.exports = dlItemHandler;
+module.exports = dlitemHandler;

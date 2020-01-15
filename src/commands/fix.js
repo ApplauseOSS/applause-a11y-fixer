@@ -3,7 +3,7 @@ const pretty = require('pretty');
 const {applyRules} = require('../utils/axeUtils');
 const {createDOM, getFromPathOrUrl} = require('../utils/domUtils');
 const {FixError} = require('../errors/errors');
-const {HANDLER_MAP, AXE_RULES} = require('../config/handlerMap');
+const {HANDLER_MAP, AXE_RULES} = require('../constants/handlerMap');
 
 /**
  * Attempts to fix a violation
@@ -14,7 +14,6 @@ async function fixViolation(
   dom,
   violation,
 ) {
-  process.stdout.write(`Fixing violation: ${violation.id}\n`);
   const handler = HANDLER_MAP[violation['id']];
   if (!handler) {
     return;
@@ -64,6 +63,8 @@ async function fixViolations(pathOrUrl, targetPath, previewOnly = false, rules) 
   }
 
   const violations = (await applyRules(dom, Object.values(AXE_RULES)))['violations'];
+
+  process.stdout.write(`Fixing ${violations.length} violations...\n`);
 
   for (const violation of violations) {
     await fixViolation(

@@ -9,7 +9,8 @@ const {commaSeparatedListProcessor} = require('./processors/argumentProcessors')
 program
   .name(pjson.name)
   .version(pjson.version)
-  .description(pjson.description);
+  .description(pjson.description)
+  .option('-r, --rules <rules...>', 'Only check these Axe rules (comma-separated)', commaSeparatedListProcessor);
 
 /**
  * Report Command
@@ -17,11 +18,10 @@ program
  */
 program
   .command('report <path-or-url>')
-  .option('-j, --json', 'Print output as json.')
-  .option('-r, --rules <rules>', 'Only check these rules (comma-separated)', commaSeparatedListProcessor)
+  .option('-j, --json', 'Print output as raw Axe json.')
   .action(async function(path, command) {
     try {
-      await report(path, command.json, command.rules);
+      await report(path, command.json, program.rules);
     } catch (err) {
       process.stderr.write(`Error: ${err.message}\n\n`);
       program.outputHelp();
@@ -34,11 +34,10 @@ program
  */
 program
   .command('fix <path-or-url> [target-file]')
-  .option('-p, --preview', 'Print a preview of the output only.')
-  .option('-r, --rules <rules>', 'Only fix these rules (comma-separated)', commaSeparatedListProcessor)
+  .option('-p, --preview', 'Print a preview of the output to the console.')
   .action(async function(path, target, command) {
     try {
-      await fix(path, target, command.preview, command.rules);
+      await fix(path, target, command.preview, program.rules);
     } catch (err) {
       process.stderr.write(`${err.name}: ${err.message}\n`);
       program.outputHelp();

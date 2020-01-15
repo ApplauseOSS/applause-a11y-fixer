@@ -1,4 +1,10 @@
-/**
+const {S} = require('../constants/constants');
+
+/** Ensures each HTML document contains a non-empty <title> element
+ * Axe ID:
+ *   document-title https://dequeuniversity.com/rules/axe/3.0/document-title
+ * WCAG:
+ *   2.4.2
  * @param {array} violationNodes the violation node list
  * @param {object} dom the dom
  */
@@ -13,7 +19,7 @@ function documentTitleHandler(
       title = dom.window.document.createElement('title');
       head.appendChild(title);
     }
-    title.innerHTML = 'CHANGE_ME';
+    title.appendChild(dom.window.document.createTextNode(S.CHANGE_ME));
   });
 }
 

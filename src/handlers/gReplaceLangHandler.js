@@ -3,14 +3,14 @@
  * @param {array} violationNodes the violation node list
  * @param {object} dom the dom
  */
-function replaceLangHandler(
+function gReplaceLangHandler(
   violationNodes,
   dom,
 ) {
   violationNodes.forEach((node) => {
-    const element = node['element'];
-    element.setAttribute('xml:lang', element.lang);
+    const element = node.element;
+    element.setAttribute('lang', 'en');
   });
 }
 
-module.exports = replaceLangHandler;
+module.exports = gReplaceLangHandler;

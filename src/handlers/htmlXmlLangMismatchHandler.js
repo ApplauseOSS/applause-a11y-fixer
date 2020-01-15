@@ -3,14 +3,14 @@
  * @param {array} violationNodes the violation node list
  * @param {object} dom the dom
  */
-function replaceLangHandler(
+function htmlXmlLangMismatchHandler(
   violationNodes,
   dom,
 ) {
   violationNodes.forEach((node) => {
-    const element = node['element'];
-    element.setAttribute('lang', 'en');
+    const element = node.element;
+    element.setAttribute('xml:lang', element.lang);
   });
 }
 
-module.exports = replaceLangHandler;
+module.exports = htmlXmlLangMismatchHandler;
