@@ -1,5 +1,17 @@
 const {SubNodeType} = require('../constants/constants');
 
+/** Replace the given element with a different tag
+ * @param {object} dom The JSDOM dom object
+ * @param {object} element HTMLElement node
+ * @param {string} tagName Tag type name
+ */
+function replaceWithTag(dom, element, tagName) {
+  const newTag = dom.window.document.createElement(tagName);
+  element.before(newTag);
+  newTag.innerHTML = element.innerHTML;
+  element.remove();
+}
+
 /**
  * @param {array} violationNodes Array of Axe violation nodes
  * @param {SelectorType} selector Where to pull relatedNodes from ['any', 'all', 'none']
@@ -45,3 +57,4 @@ function getRelated(node, selector, type) {
 
 exports.landmarkNoDuplicate = landmarkNoDuplicate;
 exports.getRelated = getRelated;
+exports.replaceWithTag = replaceWithTag;

@@ -1,4 +1,8 @@
-/**
+/** Ensure image alternative is not repeated as text
+ * Axe ID:
+ *   image-redundant-alt https://dequeuniversity.com/rules/axe/3.3/image-redundant-alt
+ * WCAG:
+ *   n/a
  * @param {array} violationNodes the violation node list
  * @param {object} dom the dom
  */

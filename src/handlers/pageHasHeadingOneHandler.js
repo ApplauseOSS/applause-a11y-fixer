@@ -1,6 +1,10 @@
 const {S} = require('../constants/constants');
 
-/**
+/** Ensure that the page, or at least one of its frames contains a level-one heading
+ * Axe ID:
+ *   page-has-heading-one https://dequeuniversity.com/rules/axe/3.0/page-has-heading-one
+ * WCAG:
+ *   n/a
  * @param {array} violationNodes the violation node list
  * @param {object} dom the dom
  */

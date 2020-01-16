@@ -1,5 +1,8 @@
-/**
- * Wraps the specified violation node value with a `ul`
+/** Wraps the specified violation node value with a `ul`
+ * Axe ID:
+ *   listitem https://dequeuniversity.com/rules/axe/3.0/listitem
+ * WCAG:
+ *   1.3.1
  * @param {array} violationNodes the violation node list
  * @param {object} dom the dom
  */

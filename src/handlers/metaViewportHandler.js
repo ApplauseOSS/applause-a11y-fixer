@@ -1,6 +1,11 @@
 const {contentToMap, mapToContent} = require('../utils/miscUtils');
 
-/**
+/** Ensures <meta name="viewport"> does not disable text scaling and zooming
+ * Axe ID:
+ *   meta-viewport https://dequeuniversity.com/rules/axe/3.1/meta-viewport
+ *   meta-viewport-large https://dequeuniversity.com/rules/axe/3.0/meta-viewport-large
+ * WCAG:
+ *   1.4.4
  * @param {array} violationNodes the violation node list
  * @param {object} dom the dom
  */

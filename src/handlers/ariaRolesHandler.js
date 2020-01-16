@@ -1,3 +1,5 @@
+const {S} = require('../constants/constants');
+
 /** ARIA roles used must conform to valid values
  * Axe ID:
  *   aria-roles https://dequeuniversity.com/rules/axe/3.0/aria-roles
@@ -14,7 +16,7 @@ function ariaRolesHandler(
 ) {
   violationNodes.forEach((node) => {
     const element = node.element;
-    element.setAttribute('role', 'CHANGE_OR_REMOVE');
+    element.setAttribute('role', S.CHANGE_ME);
   });
 }
 

@@ -43,8 +43,8 @@ async function fixViolations(pathOrUrl, targetPath, previewOnly = false, rules) 
     throw new FixError('[target-file] is not set.');
   }
 
-  let document = await getFromPathOrUrl(pathOrUrl);
-  const dom = createDOM(document);
+  let documentString = await getFromPathOrUrl(pathOrUrl);
+  const dom = createDOM(documentString);
 
   if (rules !== undefined) {
     const validRules = Object.keys(HANDLER_MAP);
@@ -73,12 +73,19 @@ async function fixViolations(pathOrUrl, targetPath, previewOnly = false, rules) 
     );
   }
 
-  document = pretty(dom.serialize(), {ocd: true});
+  // serialize to html string
+  documentString = dom.serialize();
+  // remove comments
+  documentString = documentString.replace(/<!--.+?-->/sg, '');
+  // remove leading and trailing spaces
+  documentString = documentString.replace(/^\s+|\s+$/gm, '');
+  // pretty format
+  documentString = pretty(documentString, {ocd: true});
 
   if (previewOnly === true) {
-    process.stdout.write(document);
+    process.stdout.write(documentString);
   } else {
-    await fsp.writeFile(targetPath, document, {encoding: 'utf-8'});
+    await fsp.writeFile(targetPath, documentString, {encoding: 'utf-8'});
   }
 }
 

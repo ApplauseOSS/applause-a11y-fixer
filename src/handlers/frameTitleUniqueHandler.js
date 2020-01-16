@@ -1,4 +1,8 @@
-/**
+/** Ensures <iframe> and <frame> elements contain a unique title attribute
+ * Axe ID:
+ *   frame-title-unique https://dequeuniversity.com/rules/axe/3.3/frame-title-unique
+ * WCAG:
+ *   n/a
  * @param {array} violationNodes the violation node list
  * @param {object} dom the dom
  */

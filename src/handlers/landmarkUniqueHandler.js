@@ -1,7 +1,11 @@
 const {S, T, SubNodeType, SelectorType} = require('../constants/constants');
 const {getRelated} = require('../utils/handlerUtils');
 
-/**
+/** Landmarks must have a unique role or role/label/title (i.e. accessible name) combination
+ * Axe ID:
+ *   landmark-unique https://dequeuniversity.com/rules/axe/3.3/landmark-unique
+ * WCAG:
+ *   n/a
  * @param {array} violationNodes the violation node list
  * @param {object} dom the dom
  */

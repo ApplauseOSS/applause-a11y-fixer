@@ -1,3 +1,5 @@
+const {S} = require('../constants/constants');
+
 /**
  * Replaces the "accesskey" attribute of the specified violation node
  * Axe ID:
@@ -15,10 +17,10 @@ function accesskeysHandler(
     const element = node.element;
 
     node['none'].forEach((result) => {
-      element.setAttribute('accesskey', `${result.data}_MUST_BE_UNIQUE_${nodeIndex}`);
+      element.setAttribute('accesskey', `${result.data}_${S.CHANGE_ME}_${nodeIndex}`);
 
       for (const [i, relatedNode] of result['relatedNodes'].entries()) {
-        relatedNode.element.setAttribute('accesskey', `${result.data}_MUST_BE_UNIQUE_${nodeIndex + i + 1}`);
+        relatedNode.element.setAttribute('accesskey', `${result.data}_${S.CHANGE_ME}_${nodeIndex + i + 1}`);
       }
     });
   });

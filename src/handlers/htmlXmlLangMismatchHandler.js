@@ -1,5 +1,8 @@
-/**
- * Replaces the "lang" attribute of the specified violation node
+/** Replaces the "lang" attribute of the specified violation node]
+ * Axe ID:
+ *   html-xml-lang-mismatch https://dequeuniversity.com/rules/axe/3.3/html-xml-lang-mismatch
+ * WCAG:
+ *   3.1.1
  * @param {array} violationNodes the violation node list
  * @param {object} dom the dom
  */

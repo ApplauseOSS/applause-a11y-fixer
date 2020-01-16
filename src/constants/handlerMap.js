@@ -13,18 +13,16 @@ const definitionListHandler = require('../handlers/definitionListHandler');
 const dlitemHandler = require('../handlers/dlitemHandler');
 const documentTitleHandler = require('../handlers/documentTitleHandler');
 const emptyHeadingHandler = require('../handlers/emptyHeadingHandler');
-const formFieldMultipleLabelsHandler = require('../handlers/formFieldMultipleLabelsHandler');
 const frameTitleUniqueHandler = require('../handlers/frameTitleUniqueHandler');
+const gAriaLabelHandler = require('../handlers/gAriaLabelHandler');
 const gButtonNameHandler = require('../handlers/gButtonNameHandler');
-const gCaptionHandler = require('../handlers/gCaptionHandler');
-const gDescriptionHandler = require('../handlers/gDescriptionHandler');
 const gDuplicateIdHandler = require('../handlers/gDuplicateIdHandler');
 const gLandmarkIsTopLevel = require('../handlers/gLandmarkIsTopLevel');
 const gReplaceAltHandler = require('../handlers/gReplaceAltHandler');
 const gReplaceLangHandler = require('../handlers/gReplaceLangHandler');
 const gReplaceTitleHandler = require('../handlers/gReplaceTitleHandler');
 const gStripAriaHiddenHandler = require('../handlers/gStripAriaHiddenHandler');
-const gStripElementHandler = require('../handlers/gStripElementHandler');
+const metaRefreshHandler = require('../handlers/metaRefreshHandler');
 const htmlXmlLangMismatchHandler = require('../handlers/htmlXmlLangMismatchHandler');
 const imageRedundantAltHandler = require('../handlers/imageRedundantAltHandler');
 const labelHandler = require('../handlers/labelHandler');
@@ -39,6 +37,7 @@ const pageHasHeadingOneHandler = require('../handlers/pageHasHeadingOneHandler')
 const scopeAttrValidHandler = require('../handlers/scopeAttrValidHandler');
 const tabindexHandler = require('../handlers/tabindexHandler');
 const tableDuplicateNameHandler = require('../handlers/tableDuplicateNameHandler');
+const gReplaceWithDivHandler = require('../handlers/gReplaceWithDivHandler');
 
 
 exports.HANDLER_MAP = {
@@ -56,7 +55,7 @@ exports.HANDLER_MAP = {
   'aria-valid-attr': ariaValidAttrHandler,
   'aria-valid-attr-value': ariaValidAttrValueHandler,
   'avoid-inline-spacing': avoidInlineSpacingHandler,
-  'blink': gStripElementHandler,
+  'blink': gReplaceWithDivHandler,
   'button-name': gButtonNameHandler,
   'definition-list': definitionListHandler,
   'dlitem': dlitemHandler,
@@ -65,7 +64,6 @@ exports.HANDLER_MAP = {
   'duplicate-id-active': gDuplicateIdHandler,
   'duplicate-id-aria': gDuplicateIdHandler,
   'empty-heading': emptyHeadingHandler,
-  'form-field-multiple-labels': formFieldMultipleLabelsHandler,
   'frame-title': gReplaceTitleHandler,
   'frame-title-unique': frameTitleUniqueHandler,
   'html-has-lang': gReplaceLangHandler,
@@ -76,6 +74,7 @@ exports.HANDLER_MAP = {
   'input-button-name': gButtonNameHandler,
   'input-image-alt': gReplaceAltHandler,
   'label': labelHandler,
+  'label-title-only': labelHandler,
   'landmark-banner-is-top-level': gLandmarkIsTopLevel,
   'landmark-complementary-is-top-level': gLandmarkIsTopLevel,
   'landmark-contentinfo-is-top-level': gLandmarkIsTopLevel,
@@ -86,18 +85,17 @@ exports.HANDLER_MAP = {
   'landmark-unique': landmarkUniqueHandler,
   'list': listHandler,
   'listitem': listItemHandler,
-  'marquee': gStripElementHandler,
-  'meta-refresh': gStripElementHandler,
+  'marquee': gReplaceWithDivHandler,
+  'meta-refresh': metaRefreshHandler,
   'meta-viewport': metaViewportHandler,
-  'object-alt': gReplaceTitleHandler,
+  'meta-viewport-large': metaViewportHandler,
+  'object-alt': gAriaLabelHandler,
   'page-has-heading-one': pageHasHeadingOneHandler,
-  'role-img-alt': gReplaceTitleHandler,
+  'role-img-alt': gAriaLabelHandler,
   'scope-attr-valid': scopeAttrValidHandler,
   'tabindex': tabindexHandler,
   'table-duplicate-name': tableDuplicateNameHandler,
   'valid-lang': gReplaceLangHandler,
-  'video-caption': gCaptionHandler,
-  'video-description': gDescriptionHandler,
 };
 
 exports.AXE_RULES = Object.keys(exports.HANDLER_MAP).map((id) => ({id: id, enabled: true}));
