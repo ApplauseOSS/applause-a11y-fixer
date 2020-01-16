@@ -6,7 +6,7 @@ const {S} = require('../constants/constants');
  * WCAG:
  *   2.4.2
  * @param {array} violationNodes the violation node list
- * @param {object} dom the dom
+ * @param {object} dom The JSDOM dom object
  */
 function documentTitleHandler(
   violationNodes,

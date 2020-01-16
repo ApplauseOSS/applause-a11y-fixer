@@ -2,7 +2,7 @@ const {S} = require('../constants/constants');
 
 /**
  * @param {array} violationNodes the violation node list
- * @param {object} dom the dom
+ * @param {object} dom The JSDOM dom object
  */
 function GDescriptionHandler(
   violationNodes,

@@ -7,7 +7,7 @@ const {HANDLER_MAP, AXE_RULES} = require('../constants/handlerMap');
 
 /**
  * Attempts to fix a violation
- * @param {object} dom the dom
+ * @param {object} dom The JSDOM dom object
  * @param {object} violation the violation
  */
 async function fixViolation(

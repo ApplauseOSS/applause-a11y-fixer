@@ -7,7 +7,7 @@ const {getRelated} = require('../utils/handlerUtils');
  * WCAG:
  *   n/a
  * @param {array} violationNodes the violation node list
- * @param {object} dom the dom
+ * @param {object} dom The JSDOM dom object
  */
 function landmarkUniqueHandler(
   violationNodes,

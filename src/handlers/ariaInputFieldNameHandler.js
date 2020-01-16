@@ -8,7 +8,7 @@ const uuidv4 = require('uuid/v4');
  * WCAG:
  *   4.1.2
  * @param {array} violationNodes the violation node list
- * @param {object} dom the dom
+ * @param {object} dom The JSDOM dom object
  */
 function ariaInputFieldNameHandler(
   violationNodes,

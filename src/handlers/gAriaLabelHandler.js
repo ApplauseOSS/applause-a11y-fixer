@@ -7,7 +7,7 @@ const {S} = require('../constants/constants');
  * WCAG:
  *   1.1.1
  * @param {array} violationNodes the violation node list
- * @param {object} dom the dom
+ * @param {object} dom The JSDOM dom object
  */
 function gAriaLabelHandler(
   violationNodes,

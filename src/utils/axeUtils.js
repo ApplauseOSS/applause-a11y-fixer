@@ -1,6 +1,6 @@
 /**
  * Apply the specified  [_axe_] `rules` against the specified `dom`
- * @param {object} dom the dom
+ * @param {object} dom The JSDOM dom object
  * @param {array} rules the rules
  * @param {boolean} disableOtherRules
  * @return {object} the result

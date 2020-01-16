@@ -8,7 +8,7 @@ const {getRelated} = require('../utils/handlerUtils');
  *   1.3.1
  * Wraps the specified violation node value with a `li`
  * @param {array} violationNodes the violation node list
- * @param {object} dom the dom
+ * @param {object} dom The JSDOM dom object
  */
 function listHandler(
   violationNodes,

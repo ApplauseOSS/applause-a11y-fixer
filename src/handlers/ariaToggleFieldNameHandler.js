@@ -6,7 +6,7 @@ const {S} = require('../constants/constants');
  * WCAG:
  *   4.1.2
  * @param {array} violationNodes the violation node list
- * @param {object} dom the dom
+ * @param {object} dom The JSDOM dom object
  */
 function ariaToggleFieldNameHandler(
   violationNodes,
