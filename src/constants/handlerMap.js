@@ -21,8 +21,8 @@ const gLandmarkIsTopLevel = require('../handlers/gLandmarkIsTopLevel');
 const gReplaceAltHandler = require('../handlers/gReplaceAltHandler');
 const gReplaceLangHandler = require('../handlers/gReplaceLangHandler');
 const gReplaceTitleHandler = require('../handlers/gReplaceTitleHandler');
+const gReplaceWithDivHandler = require('../handlers/gReplaceWithDivHandler');
 const gStripAriaHiddenHandler = require('../handlers/gStripAriaHiddenHandler');
-const metaRefreshHandler = require('../handlers/metaRefreshHandler');
 const htmlXmlLangMismatchHandler = require('../handlers/htmlXmlLangMismatchHandler');
 const imageRedundantAltHandler = require('../handlers/imageRedundantAltHandler');
 const labelHandler = require('../handlers/labelHandler');
@@ -32,12 +32,12 @@ const landmarkOneMainHandler = require('../handlers/landmarkOneMainHandler');
 const landmarkUniqueHandler = require('../handlers/landmarkUniqueHandler');
 const listHandler = require('../handlers/listHandler');
 const listItemHandler = require('../handlers/listitemHandler');
+const metaRefreshHandler = require('../handlers/metaRefreshHandler');
 const metaViewportHandler = require('../handlers/metaViewportHandler');
 const pageHasHeadingOneHandler = require('../handlers/pageHasHeadingOneHandler');
 const scopeAttrValidHandler = require('../handlers/scopeAttrValidHandler');
 const tabindexHandler = require('../handlers/tabindexHandler');
 const tableDuplicateNameHandler = require('../handlers/tableDuplicateNameHandler');
-const gReplaceWithDivHandler = require('../handlers/gReplaceWithDivHandler');
 
 
 exports.HANDLER_MAP = {
