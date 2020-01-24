@@ -16,7 +16,6 @@ function gDuplicateIdHandler(
   dom,
 ) {
   violationNodes.forEach((node) => {
-
     const relatedElements = getRelated(node, SelectorType.ANY, SubNodeType.ELEMENTS);
     const duplicateIdElements = [node.element].concat(relatedElements);
 

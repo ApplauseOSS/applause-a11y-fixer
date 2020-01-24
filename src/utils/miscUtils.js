@@ -50,7 +50,7 @@ function mapToContent(contentMap) {
  * @return {object} Text Node
  */
 function newLineNode(dom) {
-  return dom.window.document.createTextNode("\n");
+  return dom.window.document.createTextNode(require('os').EOL);
 }
 
 exports.contentToMap = contentToMap;

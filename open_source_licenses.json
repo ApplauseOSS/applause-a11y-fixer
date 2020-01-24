@@ -1,0 +1,38 @@
+{
+    "axe-core@3.4.1": {
+        "licenses": "MPL-2.0",
+        "repository": "https://github.com/dequelabs/axe-core",
+        "licenseUrl": "https://github.com/dequelabs/axe-core/raw/master/LICENSE",
+        "parents": "a11y-fixer"
+    },
+    "commander@4.1.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/tj/commander.js",
+        "licenseUrl": "https://github.com/tj/commander.js/raw/master/LICENSE",
+        "parents": "a11y-fixer"
+    },
+    "got@9.6.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/sindresorhus/got",
+        "licenseUrl": "https://github.com/sindresorhus/got/raw/master/license",
+        "parents": "a11y-fixer"
+    },
+    "jsdom@15.2.1": {
+        "licenses": "MIT",
+        "repository": "https://github.com/jsdom/jsdom",
+        "licenseUrl": "https://github.com/jsdom/jsdom/raw/master/LICENSE.txt",
+        "parents": "a11y-fixer"
+    },
+    "pretty@2.0.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/jonschlinkert/pretty",
+        "licenseUrl": "https://github.com/jonschlinkert/pretty/raw/master/LICENSE",
+        "parents": "a11y-fixer"
+    },
+    "uuid@3.3.3": {
+        "licenses": "MIT",
+        "repository": "https://github.com/kelektiv/node-uuid",
+        "licenseUrl": "https://github.com/kelektiv/node-uuid/raw/master/LICENSE.md",
+        "parents": "a11y-fixer"
+    }
+}
