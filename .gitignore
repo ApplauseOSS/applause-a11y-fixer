@@ -6,4 +6,8 @@ node_modules
 *.html
 !example.html
 
+*.txt
+!LICENSE.txt
+!open_source_licenses.txt
+
 pkg/
