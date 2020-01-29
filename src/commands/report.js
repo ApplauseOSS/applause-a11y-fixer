@@ -2,24 +2,24 @@ const {createDOM, getFromPathOrUrl} = require('./../utils/domUtils');
 const {applyRules} = require('./../utils/axeUtils');
 const {formatViolation} = require('./../utils/formatUtils');
 
-
 /**
  * Report violations for the specified input
  * @param {string} pathOrUrl the input
  * @param {boolean} jsonOutput should the result be human-readable or json formatted
  * @param {array} rules is a list of strings of rule names to check
+ * @param {string} userAgent optional custom user-agent string
  */
-async function reportViolations(pathOrUrl, jsonOutput = false, rules) {
-  const html = await getFromPathOrUrl(pathOrUrl);
+async function reportViolations(pathOrUrl, jsonOutput = false, rules, userAgent) {
+  const html = await getFromPathOrUrl(pathOrUrl, userAgent);
   const dom = createDOM(html);
 
-  if (rules !== undefined) {
+  if (rules) {
     rules = rules.map((rule) => {
       return {id: rule, enabled: true};
     });
   }
 
-  const violations = (await applyRules(dom, rules, rules !== undefined))['violations'];
+  const violations = (await applyRules(dom, rules, !!rules))['violations'];
 
   let output;
   if (jsonOutput) {

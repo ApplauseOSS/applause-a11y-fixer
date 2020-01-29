@@ -4,16 +4,21 @@ const {applyRules} = require('../utils/axeUtils');
 const {createDOM, getFromPathOrUrl} = require('../utils/domUtils');
 const {FixError} = require('../errors/errors');
 const {HANDLER_MAP, AXE_RULES} = require('../constants/handlerMap');
+const logger = require('../logging/logger');
 
 /**
  * Attempts to fix a violation
+ * @param {int} index The index of the violation
  * @param {object} dom The JSDOM dom object
  * @param {object} violation the violation
  */
 async function fixViolation(
+  index,
   dom,
   violation,
 ) {
+  logger.info(`Fixing ${index.toString().padStart(4, ' ')}: ${violation['id']}`);
+
   const handler = HANDLER_MAP[violation['id']];
   if (!handler) {
     return;
@@ -36,17 +41,18 @@ async function fixViolation(
  * @param {string} targetPath the output file
  * @param {boolean} previewOnly only preview the operation, dont write the file
  * @param {array} rules is a list of strings of rule names to check
+ * @param {string} userAgent optional custom user-agent string
  * @return {string} the result
  */
-async function fixViolations(pathOrUrl, targetPath, previewOnly = false, rules) {
+async function fixViolations(pathOrUrl, targetPath, previewOnly = false, rules, userAgent) {
   if (previewOnly === false && targetPath === undefined) {
     throw new FixError('[target-file] is not set.');
   }
 
-  let documentString = await getFromPathOrUrl(pathOrUrl);
+  let documentString = await getFromPathOrUrl(pathOrUrl, userAgent);
   const dom = createDOM(documentString);
 
-  if (rules !== undefined) {
+  if (rules) {
     const validRules = Object.keys(HANDLER_MAP);
 
     rules.forEach((rule) => {
@@ -62,12 +68,14 @@ async function fixViolations(pathOrUrl, targetPath, previewOnly = false, rules) 
     });
   }
 
-  const violations = (await applyRules(dom, Object.values(AXE_RULES)))['violations'];
+  const violations = (await applyRules(dom, Object.values(AXE_RULES), true))['violations'];
 
-  process.stdout.write(`Fixing ${violations.length} violations...\n`);
+  const violationStr = violations.length.toString().padStart(4, ' ');
+  logger.info(`Fixing[${violationStr}] violation${violations.length > 1 ? 's' : ''}...`);
 
-  for (const violation of violations) {
+  for (const [i, violation] of violations.entries()) {
     await fixViolation(
+      i + 1,
       dom,
       violation,
     );

@@ -1,8 +1,8 @@
 {
-    "name": "applause-a11y-fixer",
-    "version": "0.0.3",
+    "name": "a11y-fixer",
+    "version": "0.0.1",
     "bin": "./src/cli.js",
-    "description": "Applause A11Y Fixer",
+    "description": "Applause A11Y (Accessibility) Issue Reporter / Fixer",
     "main": "./src/cli.js",
     "repository": "https://github.com/ApplauseAQI/applause-a11y-fixer",
     "scripts": {
