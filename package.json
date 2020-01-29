@@ -1,6 +1,6 @@
 {
     "name": "a11y-fixer",
-    "version": "0.0.1",
+    "version": "0.0.4",
     "bin": "./src/cli.js",
     "description": "Applause A11Y (Accessibility) Issue Reporter / Fixer",
     "main": "./src/cli.js",
