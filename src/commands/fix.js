@@ -4,7 +4,7 @@ const {applyRules} = require('../utils/axeUtils');
 const {createDOM, getFromPathOrUrl} = require('../utils/domUtils');
 const {FixError} = require('../errors/errors');
 const {HANDLER_MAP, AXE_RULES} = require('../constants/handlerMap');
-const logger = require('../logging/logger');
+// const logger = require('../logging/logger');
 
 /**
  * Attempts to fix a violation
@@ -17,7 +17,7 @@ async function fixViolation(
   dom,
   violation,
 ) {
-  logger.info(`Fixing ${index.toString().padStart(4, ' ')}: ${violation['id']}`);
+  // logger.info(`Fixing ${index.toString().padStart(4, ' ')}: ${violation['id']}`);
 
   const handler = HANDLER_MAP[violation['id']];
   if (!handler) {
@@ -70,8 +70,8 @@ async function fixViolations(pathOrUrl, targetPath, previewOnly = false, rules, 
 
   const violations = (await applyRules(dom, Object.values(AXE_RULES), true))['violations'];
 
-  const violationStr = violations.length.toString().padStart(4, ' ');
-  logger.info(`Fixing[${violationStr}] violation${violations.length > 1 ? 's' : ''}...`);
+  // const violationStr = violations.length.toString().padStart(4, ' ');
+  // logger.info(`Fixing[${violationStr}] violation${violations.length > 1 ? 's' : ''}...`);
 
   for (const [i, violation] of violations.entries()) {
     await fixViolation(

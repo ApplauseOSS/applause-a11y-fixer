@@ -1,4 +1,4 @@
-const logger = require('../logging/logger');
+// const logger = require('../logging/logger');
 
 /**
  * Apply the specified  [_axe_] `rules` against the specified `dom`
@@ -8,7 +8,7 @@ const logger = require('../logging/logger');
  * @return {object} the result
  */
 async function applyRules(dom, rules, disableOtherRules = true) {
-  logger.info('Checking HTML for violations...');
+  // logger.info('Checking HTML for violations...');
 
   // See: https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#required-globals
   global.document = dom.window.document;

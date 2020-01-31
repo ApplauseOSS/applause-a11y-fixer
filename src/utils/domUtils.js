@@ -10,7 +10,7 @@ const logger = require('../logging/logger');
  * @return {object} the result
  */
 function createDOM(input) {
-  logger.info('Creating DOM...');
+  // logger.info('Creating DOM...');
   return new JSDOM(input, {includeNodeLocations: true});
 }
 
@@ -23,7 +23,7 @@ function createDOM(input) {
 async function getFromPathOrUrl(pathOrUrl, userAgent) {
   let input;
   if (pathOrUrl.match(/^http[s]?:\/\//)) {
-    logger.info(`Get HTML: ${pathOrUrl} ...`);
+    // logger.info(`Get HTML: ${pathOrUrl} ...`);
     if (!userAgent) {
       userAgent = new UserAgent({deviceCategory: 'desktop'}).toString();
     }
@@ -42,7 +42,7 @@ async function getFromPathOrUrl(pathOrUrl, userAgent) {
       throw Error(`Failed to get response from url: ${e.name}`);
     }
   } else {
-    logger.info(`Get File: ${pathOrUrl} ...`);
+    // logger.info(`Get File: ${pathOrUrl} ...`);
     input = await fsp.readFile(pathOrUrl, 'utf8');
   }
   return input;

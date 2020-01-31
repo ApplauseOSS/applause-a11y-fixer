@@ -11,9 +11,9 @@ program
   .version(pjson.version)
   .description(pjson.description)
   .option('-v, --verbose', 'Show log messages below error level.')
-  .on('option:verbose', () => {
-    logger.level = 'debug';
-  })
+  // .on('option:verbose', () => {
+  //   logger.level = 'debug';
+  // })
   .option('-r, --rules <rules...>', 'Only check these Axe rules (comma-separated)', commaSeparatedListProcessor)
   .option('-u, --user-agent <userAgent>',
     'Custom User-Agent Header for use when input is url. ' +
