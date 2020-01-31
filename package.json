@@ -1,6 +1,6 @@
 {
     "name": "applause-accessibility-tool",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "bin": "./src/cli.js",
     "description": "The Applause Accessibility Tool from Applause Labs\nenables you to quickly identify and resolve accessibility\nissues while you code to help maintain a baseline of accessibility.",
     "main": "./src/cli.js",

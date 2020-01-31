@@ -90,10 +90,16 @@ async function fixViolations(pathOrUrl, targetPath, previewOnly = false, rules, 
   // pretty format
   documentString = pretty(documentString, {ocd: true});
 
+  const output = documentString + '\n';
   if (previewOnly === true) {
-    process.stdout.write(documentString+'\n');
+    process.stdout.write(output, () => {
+      logger.info('Fix Preview Done.');
+      process.exit(0);
+    });
   } else {
-    await fsp.writeFile(targetPath, documentString, {encoding: 'utf-8'});
+    await fsp.writeFile(targetPath, output, {encoding: 'utf-8'});
+    logger.info('Fix Done.');
+    process.exit(0);
   }
 }
 

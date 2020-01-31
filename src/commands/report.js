@@ -1,10 +1,8 @@
 const {createDOM, getFromPathOrUrl} = require('./../utils/domUtils');
 const {applyRules} = require('./../utils/axeUtils');
 const {formatViolation} = require('./../utils/formatUtils');
-const fs = require('fs');
-const {promisify} = require('util');
+const logger = require('./../logging/logger');
 
-const fsWriteAsync = promisify(fs.write);
 
 /**
  * Report violations for the specified input
@@ -36,7 +34,10 @@ async function reportViolations(pathOrUrl, jsonOutput = false, rules, userAgent)
     }
   }
   output = output + '\n';
-  await fsWriteAsync(1, output);
+  process.stdout.write(output, () => {
+    logger.info('Report Done.');
+    process.exit(0);
+  });
 }
 
 module.exports = reportViolations;
