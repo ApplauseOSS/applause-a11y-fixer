@@ -4,7 +4,7 @@ const fix = require('./commands/fix');
 const pjson = require('./../package.json');
 const errors = require('./errors/errors');
 const {commaSeparatedListProcessor} = require('./processors/argumentProcessors');
-const logger = require('./logging/logger');
+// const logger = require('./logging/logger');
 
 program
   .name(pjson.name)
