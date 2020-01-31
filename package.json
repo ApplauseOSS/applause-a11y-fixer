@@ -1,6 +1,6 @@
 {
     "name": "applause-accessibility-tool",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "bin": "./src/cli.js",
     "description": "The Applause Accessibility Tool from Applause Labs\nenables you to quickly identify and resolve accessibility\nissues while you code to help maintain a baseline of accessibility.",
     "main": "./src/cli.js",
@@ -16,12 +16,13 @@
     "dependencies": {
         "axe-core": "^3.4.1",
         "commander": "^4.1.0",
-        "got": "^9.6.0",
-        "http2-client": "^1.3.3",
-        "jsdom": "^15.2.1",
+        "got": "^10.4.0",
+        "http2-wrapper": "^1.0.0-beta.3",
+        "jsdom": "^16.0.1",
         "pretty": "^2.0.0",
-        "user-agents": "^1.0.517",
-        "uuid": "^3.3.3"
+        "user-agents": "^1.0.518",
+        "uuid": "^3.4.0",
+        "winston": "^3.2.1"
     },
     "devDependencies": {
         "pkg": "^4.4.2",

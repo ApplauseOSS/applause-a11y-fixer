@@ -4,16 +4,16 @@ const fix = require('./commands/fix');
 const pjson = require('./../package.json');
 const errors = require('./errors/errors');
 const {commaSeparatedListProcessor} = require('./processors/argumentProcessors');
-// const logger = require('./logging/logger');
+const logger = require('./logging/logger');
 
 program
   .name(pjson.name)
   .version(pjson.version)
   .description(pjson.description)
   .option('-v, --verbose', 'Show log messages below error level.')
-  // .on('option:verbose', () => {
-  //   logger.level = 'debug';
-  // })
+  .on('option:verbose', () => {
+    logger.level = 'debug';
+  })
   .option('-r, --rules <rules...>', 'Only check these Axe rules (comma-separated)', commaSeparatedListProcessor)
   .option('-u, --user-agent <userAgent>',
     'Custom User-Agent Header for use when input is url. ' +
@@ -61,13 +61,17 @@ program.on('command:*', function() {
 });
 
 // Execute
-try {
-  program.parse(process.argv);
-} catch (err) {
-  if ([errors.ProcessorError].some((item) => err instanceof item)) {
-    process.stderr.write(`${err.name}: ${err.message}\n`);
+(async () => {
+  try {
+    await program.parseAsync(process.argv);
+  } catch (err) {
+    if ([errors.ProcessorError].some((item) => err instanceof item)) {
+      process.stderr.write(`${err.name}: ${err.message}\n`);
+    }
+    process.exit(1);
   }
-}
+  process.exit(0);
+})();
 
 // Errors
 if (!process.argv.slice(2).length) {
