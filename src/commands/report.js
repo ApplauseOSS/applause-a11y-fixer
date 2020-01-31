@@ -31,7 +31,7 @@ async function reportViolations(pathOrUrl, jsonOutput = false, rules, userAgent)
       output = `${violations.map((violation) => formatViolation(violation, dom)).join('\n\n')}`;
     }
   }
-  process.stdout.write(output);
+  process.stdout.write(output + '\n');
 }
 
 module.exports = reportViolations;

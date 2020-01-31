@@ -64,13 +64,13 @@ program.on('command:*', function() {
 (async () => {
   try {
     await program.parseAsync(process.argv);
+    process.exit(0);
   } catch (err) {
     if ([errors.ProcessorError].some((item) => err instanceof item)) {
       process.stderr.write(`${err.name}: ${err.message}\n`);
     }
     process.exit(1);
   }
-  process.exit(0);
 })();
 
 // Errors
