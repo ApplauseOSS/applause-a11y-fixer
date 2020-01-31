@@ -6,197 +6,197 @@
         <meta http-equiv="refresh" content="3, URL=http://www.example.com/">
 
         <!-- meta-viewport -->
-<!--        <meta name="viewport" content="user-scalable=no, maximum-scale=1, 8, junk">-->
+        <meta name="viewport" content="user-scalable=no, maximum-scale=1, 8, junk">
 
         <!-- document-title -->
         <title>Something</title>
     </head>
     <body>
-<!--        &lt;!&ndash; landmark-banner-is-top-level &ndash;&gt;-->
-<!--        <div role="complementary">-->
-<!--            <div role="banner"><p>Banner Information</p></div>-->
-<!--        </div>-->
+        <!-- landmark-banner-is-top-level -->
+        <div role="complementary">
+            <div role="banner"><p>Banner Information</p></div>
+        </div>
 
-<!--        &lt;!&ndash; landmark-main-is-top-level &ndash;&gt;-->
-<!--        <div role="complementary">-->
-<!--            <div role="main"><p>Main Information</p></div>-->
-<!--        </div>-->
+        <!-- landmark-main-is-top-level -->
+        <div role="complementary">
+            <div role="main"><p>Main Information</p></div>
+        </div>
 
-<!--        &lt;!&ndash; landmark-contentinfo-is-top-level &ndash;&gt;-->
-<!--        <div role="complementary">-->
-<!--            <div role="contentinfo"><p>Content Information</p></div>-->
-<!--        </div>-->
+        <!-- landmark-contentinfo-is-top-level -->
+        <div role="complementary">
+            <div role="contentinfo"><p>Content Information</p></div>
+        </div>
 
-<!--        &lt;!&ndash; landmark-complementary-is-top-level &ndash;&gt;-->
-<!--        <div role="search">-->
-<!--            <div role="complementary"></div>-->
-<!--        </div>-->
+        <!-- landmark-complementary-is-top-level -->
+        <div role="search">
+            <div role="complementary"></div>
+        </div>
 
-<!--        &lt;!&ndash; landmark-no-duplicate-banner &ndash;&gt;-->
-<!--        <header><p>Banner Information</p></header>-->
-<!--        <div role="banner"><p>More Banner Information</p></div>-->
+        <!-- landmark-no-duplicate-banner -->
+        <header><p>Banner Information</p></header>
+        <div role="banner"><p>More Banner Information</p></div>
 
-<!--        &lt;!&ndash; landmark-no-duplicate-contentinfo &ndash;&gt;-->
-<!--        <div role="contentinfo"><p>Content Information</p></div>-->
-<!--        <div role="contentinfo"><p>More Content Information</p></div>-->
+        <!-- landmark-no-duplicate-contentinfo -->
+        <div role="contentinfo"><p>Content Information</p></div>
+        <div role="contentinfo"><p>More Content Information</p></div>
 
-<!--        &lt;!&ndash; landmark-one-main &ndash;&gt;-->
-<!--        <main><p>Main Information</p></main>-->
-<!--        <div role="main"><p>More Main Information</p></div>-->
+        <!-- landmark-one-main -->
+        <main><p>Main Information</p></main>
+        <div role="main"><p>More Main Information</p></div>
 
-<!--        &lt;!&ndash; landmark-unique &ndash;&gt;-->
-<!--        <form id="violation-form-aria-label-1" aria-label="form-label"></form>-->
-<!--        <form id="violation-form-aria-label-2" aria-label="form-label"></form>-->
+        <!-- landmark-unique -->
+        <form id="violation-form-aria-label-1" aria-label="form-label"></form>
+        <form id="violation-form-aria-label-2" aria-label="form-label"></form>
 
-<!--        <div id="aside-label-1">aside-with-label</div>-->
-<!--        <div id="aside-label-2">aside-with-label</div>-->
-<!--        <form id="violation-aside-aria-labelledby-1" aria-labelledby="aside-label-1"></form>-->
-<!--        <form id="violation-aside-aria-labelledby-2" aria-labelledby="aside-label-2"></form>-->
+        <div id="aside-label-1">aside-with-label</div>
+        <div id="aside-label-2">aside-with-label</div>
+        <form id="violation-aside-aria-labelledby-1" aria-labelledby="aside-label-1"></form>
+        <form id="violation-aside-aria-labelledby-2" aria-labelledby="aside-label-2"></form>
 
-<!--        &lt;!&ndash; scope-attr-valid &ndash;&gt;-->
-<!--        <table>-->
-<!--            <tr>-->
-<!--                <th scope="pickle">Wrong</th>-->
-<!--            </tr>-->
-<!--        </table>-->
+        <!-- scope-attr-valid -->
+        <table>
+            <tr>
+                <th scope="pickle">Wrong</th>
+            </tr>
+        </table>
 
-<!--        &lt;!&ndash; accesskey &ndash;&gt;-->
-<!--        <a href="google.com" accesskey="g">Link to Google</a>-->
-<!--        <a href="github.com" accesskey="g">Link to GitHub</a>-->
+        <!-- accesskey -->
+        <a href="google.com" accesskey="g">Link to Google</a>
+        <a href="github.com" accesskey="g">Link to GitHub</a>
 
-<!--        &lt;!&ndash; area-alt &ndash;&gt;-->
-<!--        <map name="imagemap">-->
-<!--            <area shape="rect" coords="0,0,10,10" href="#">-->
-<!--        </map>-->
+        <!-- area-alt -->
+        <map name="imagemap">
+            <area shape="rect" coords="0,0,10,10" href="#">
+        </map>
 
-<!--        &lt;!&ndash; aria-hidden-focus &ndash;&gt;-->
-<!--        <button aria-hidden="true">Test</button>-->
+        <!-- aria-hidden-focus -->
+        <button aria-hidden="true">Test</button>
 
-<!--        &lt;!&ndash; aria-label with empty text string &ndash;&gt;-->
-<!--        <div id="fail1" aria-label=" " role="combobox">England</div>-->
+        <!-- aria-label with empty text string -->
+        <div id="fail1" aria-label=" " role="combobox">England</div>
 
-<!--        &lt;!&ndash; The label does not exist. &ndash;&gt;-->
-<!--        <div id="fail2" aria-labelledby="non-existing-label" role="combobox">England</div>-->
+        <!-- The label does not exist. -->
+        <div id="fail2" aria-labelledby="non-existing-label" role="combobox">England</div>
 
-<!--        &lt;!&ndash; items nested in label should have aria-labelledby &ndash;&gt;-->
-<!--        <label>-->
-<!--            A Label-->
-<!--            <textarea id="fail10" role="textbox"></textarea>-->
-<!--        </label>-->
+        <!-- items nested in label should have aria-labelledby -->
+        <label>
+            A Label
+            <textarea id="fail10" role="textbox"></textarea>
+        </label>
 
-<!--        &lt;!&ndash; aria-toggle-field-label checkbox &ndash;&gt;-->
-<!--        <div id="fail1" role="checkbox"></div>-->
+        <!-- aria-toggle-field-label checkbox -->
+        <div id="fail1" role="checkbox"></div>
 
-<!--        &lt;!&ndash; aria-role with invalid role='' &ndash;&gt;-->
-<!--        <div id="fail1" role="invalid-role">Massachusetts</div>-->
+        <!-- aria-role with invalid role='' -->
+        <div id="fail1" role="invalid-role">Massachusetts</div>
 
-<!--        &lt;!&ndash; aria-roledescription &ndash;&gt;-->
-<!--        <span aria-roledescription="invalid roledescription">Test</span>-->
+        <!-- aria-roledescription -->
+        <span aria-roledescription="invalid roledescription">Test</span>
 
-<!--        &lt;!&ndash; aria-valid-attr &ndash;&gt;-->
-<!--        <div aria-foo="bar" aria-x="y">Test</div>-->
+        <!-- aria-valid-attr -->
+        <div aria-foo="bar" aria-x="y">Test</div>
 
-<!--        &lt;!&ndash; audio-caption &ndash;&gt;-->
-<!--        <audio>-->
-<!--            <source src="example.mp3" type="audio/mp3">-->
-<!--        </audio>-->
+        <!-- audio-caption -->
+        <audio>
+            <source src="example.mp3" type="audio/mp3">
+        </audio>
 
-<!--        &lt;!&ndash; video-caption &ndash;&gt;-->
-<!--        <video width="300" height="200">-->
-<!--            <source src="example.mp4" type="video/mp4">-->
-<!--        </video>-->
+        <!-- video-caption -->
+        <video width="300" height="200">
+            <source src="example.mp4" type="video/mp4">
+        </video>
 
-<!--        &lt;!&ndash; blink &ndash;&gt;-->
-<!--        <blink>blinking text</blink>-->
+        <!-- blink -->
+        <blink>blinking text</blink>
 
-<!--        &lt;!&ndash; button-name &ndash;&gt;-->
-<!--        <button id="myButton1"></button>-->
-<!--        <button id="myButton2" aria-label=""></button>-->
-<!--        <button id="albmissing" aria-labelledby="nonexistent"></button>-->
-<!--        <button id="albempty" aria-labelledby="emptydiv"></button>-->
-<!--        <div id="emptydiv"></div>-->
+        <!-- button-name -->
+        <button id="myButton1"></button>
+        <button id="myButton2" aria-label=""></button>
+        <button id="albmissing" aria-labelledby="nonexistent"></button>
+        <button id="albempty" aria-labelledby="emptydiv"></button>
+        <div id="emptydiv"></div>
 
-<!--        &lt;!&ndash; input-button-name &ndash;&gt;-->
-<!--        <form>-->
-<!--            <input type="button" id="myInputButton1"/>-->
-<!--            <input type="button" id="myInputButton2" aria-label=""/>-->
-<!--            <input type="button" id="albInputmissing" aria-labelledby="nonexistent"/>-->
-<!--            <input type="button" id="albInputempty" aria-labelledby="emptydivInput"/>-->
-<!--            <div id="emptydivInput"></div>-->
-<!--        </form>-->
+        <!-- input-button-name -->
+        <form>
+            <input type="button" id="myInputButton1"/>
+            <input type="button" id="myInputButton2" aria-label=""/>
+            <input type="button" id="albInputmissing" aria-labelledby="nonexistent"/>
+            <input type="button" id="albInputempty" aria-labelledby="emptydivInput"/>
+            <div id="emptydivInput"></div>
+        </form>
 
-<!--        &lt;!&ndash; dlitem &ndash;&gt;-->
-<!--        <dt>Coffee</dt>-->
-<!--            <dd>Black hot drink</dd>-->
-<!--        <dt>Milk</dt>-->
-<!--            <dd>White cold drink</dd>-->
+        <!-- dlitem -->
+        <dt>Coffee</dt>
+            <dd>Black hot drink</dd>
+        <dt>Milk</dt>
+            <dd>White cold drink</dd>
 
-<!--        &lt;!&ndash; definition-list &ndash;&gt;-->
-<!--        <dl>-->
-<!--            <dd>White cold drink</dd>-->
-<!--            <dt>Wine</dt>-->
-<!--            <dt>Juice</dt>-->
-<!--        </dl>-->
+        <!-- definition-list -->
+        <dl>
+            <dd>White cold drink</dd>
+            <dt>Wine</dt>
+            <dt>Juice</dt>
+        </dl>
 
-<!--        &lt;!&ndash; frame-title &ndash;&gt;-->
-<!--        <iframe></iframe>-->
+        <!-- frame-title -->
+        <iframe></iframe>
 
-<!--        &lt;!&ndash; frame-title-unique &ndash;&gt;-->
-<!--        <iframe title="frame title"></iframe>-->
-<!--        <iframe title="frame title"></iframe>-->
+        <!-- frame-title-unique -->
+        <iframe title="frame title"></iframe>
+        <iframe title="frame title"></iframe>
 
-<!--        <ul>-->
-<!--            <li>first</li>-->
-<!--            <li>second</li>-->
+        <ul>
+            <li>first</li>
+            <li>second</li>
 
-<!--            &lt;!&ndash; list &ndash;&gt;-->
-<!--            <div class="foo">third</div>-->
-<!--        </ul>-->
+            <!-- list -->
+            <div class="foo">third</div>
+        </ul>
 
-<!--        &lt;!&ndash; image-alt &ndash;&gt;-->
-<!--        <img src="asdasd">-->
+        <!-- image-alt -->
+        <img src="asdasd">
 
-<!--        &lt;!&ndash; avoid-inline-spacing &ndash;&gt;-->
-<!--        <p id="inlineSpace" style="line-height: 1.5 !important;">Banana error</p>-->
+        <!-- avoid-inline-spacing -->
+        <p id="inlineSpace" style="line-height: 1.5 !important;">Banana error</p>
 
-<!--        &lt;!&ndash; input-image-alt &ndash;&gt;-->
-<!--        <input type="image">-->
+        <!-- input-image-alt -->
+        <input type="image">
 
-<!--        <p lang="NotALang">Some text here</p>-->
+        <p lang="NotALang">Some text here</p>
 
-<!--        &lt;!&ndash; image-redundant-alt &ndash;&gt;-->
-<!--        <a href="index.html"><img src="home-icon.png" alt="Home Page" width="24" height="25">Home Page</a>-->
+        <!-- image-redundant-alt -->
+        <a href="index.html"><img src="home-icon.png" alt="Home Page" width="24" height="25">Home Page</a>
 
-<!--        &lt;!&ndash; aria-allowed-role &ndash;&gt;-->
-<!--        <a href="example.html" role="note"></a>-->
+        <!-- aria-allowed-role -->
+        <a href="example.html" role="note"></a>
 
-<!--        &lt;!&ndash; label &ndash;&gt;-->
-<!--        <input type="text" id="firstName">-->
+        <!-- label -->
+        <input type="text" id="firstName">
 
-<!--        &lt;!&ndash; listitem &ndash;&gt;-->
-<!--        <li>list item 1</li>-->
-<!--        <li>list item 2</li>-->
+        <!-- listitem -->
+        <li>list item 1</li>
+        <li>list item 2</li>
 
-<!--        &lt;!&ndash; marquee &ndash;&gt;-->
-<!--        <marquee>some marquee text</marquee>-->
+        <!-- marquee -->
+        <marquee>some marquee text</marquee>
 
-<!--        &lt;!&ndash; object-alt &ndash;&gt;-->
-<!--        <object></object>-->
+        <!-- object-alt -->
+        <object></object>
 
-<!--        &lt;!&ndash; role-img-alt &ndash;&gt;-->
-<!--        <div role="img"></div>-->
+        <!-- role-img-alt -->
+        <div role="img"></div>
 
-<!--        &lt;!&ndash; tabindex &ndash;&gt;-->
-<!--        <div tabindex="2"></div>-->
-<!--        <div tabindex="1"></div>-->
+        <!-- tabindex -->
+        <div tabindex="2"></div>
+        <div tabindex="1"></div>
 
-<!--        &lt;!&ndash; table-duplicate-name&ndash;&gt;-->
-<!--        <table summary="The same thing">-->
-<!--            <caption>The same thing</caption>-->
-<!--        </table>-->
+        <!-- table-duplicate-name-->
+        <table summary="The same thing">
+            <caption>The same thing</caption>
+        </table>
 
-<!--        &lt;!&ndash; empty-heading &ndash;&gt;-->
-<!--        <h2></h2>-->
+        <!-- empty-heading -->
+        <h2></h2>
 
     </body>
 </html>
