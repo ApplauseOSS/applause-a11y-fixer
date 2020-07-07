@@ -3,6 +3,10 @@
 This command line application runs [axe-core](https://www.npmjs.com/package/axe-core) accessibility checks against `html` files or urls.
 It can return a report of accessibility problems or write the fixed `html` to a new or existing local file.
 
+(*if you are looking for the curated version of the plug-in please visit:
+https://www.applause.com/accessibility-tool#solutionsContact and fill out the
+form*)
+
 ## Prerequisites
 
 * `node@12.13.0`
