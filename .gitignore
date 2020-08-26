@@ -11,3 +11,5 @@ node_modules
 !open_source_licenses.txt
 
 pkg/
+
+.node-version
