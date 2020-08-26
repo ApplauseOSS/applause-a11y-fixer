@@ -8,7 +8,7 @@ It can return a report of accessibility problems or write the fixed `html` to a 
 
 ## Prerequisites
 
-* `node@12.13.0`
+* `node@12.13.0+`
 
 ## Quickstart
 
