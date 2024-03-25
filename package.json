@@ -16,7 +16,7 @@
     "dependencies": {
         "axe-core": "^3.4.1",
         "commander": "^4.1.0",
-        "got": "^10.4.0",
+        "got": "^11.8.5",
         "http2-wrapper": "^1.0.0-beta.3",
         "jsdom": "^16.0.1",
         "pretty": "^2.0.0",
